@@ -26,6 +26,14 @@ useEffect(() => {
                     </li>
                 ))}
             </ul>
+            <div className='filters'>
+                <button onClick={() => setUrl('http://localhost:3000/trips?loc=europe')}>
+                    European Trips
+                </button>
+                <button onClick={() => setUrl('http://localhost:3000/trips')}>
+                    All Trips
+                </button>
+            </div>
         </div>
     )
 }
