@@ -6,27 +6,12 @@ import './TripList.css'
 export default function TripList() {
 // const [trips, setTrips] = useState([]);
 const [url, setUrl] = useState('http://localhost:3000/trips')
-const { data: trips } = useFetch(url)
-
-// const fetchTrips = useCallback(async () => {
-//     const response = await fetch(url)
-//     const json = await response.json()
-//     setTrips(json)
-// }, [url])
-
-// useEffect(() => {
-//     // fetch(url)
-//     //     .then(response => response.json())
-//     //     .then(json => setTrips(json))
-//     fetchTrips()
-// }, [fetchTrips])
-
-
-
+const { data: trips, isPending } = useFetch(url)
 
     return (
         <div className='trip-list'>
             <h2>Trip List</h2>
+            {isPending && <div>Loading trips...</div>}
             <ul>
                 {trips && trips.map(trip => (
                     <li key={trip.id}>
